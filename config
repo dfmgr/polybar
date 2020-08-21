@@ -920,6 +920,9 @@ format-background = ${colors.background}
 
 [module/mpd]
 type = internal/mpd
+host     = ${env:MPDSERVER:localhost}
+port     = 6600
+interval = 2
 format-online =  "<label-song>  <bar-progress> <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
 icon-prev = 
 icon-stop = 
