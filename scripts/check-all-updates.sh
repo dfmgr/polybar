@@ -31,13 +31,14 @@ if [ -f /usr/bin/pacman ]; then
     updates_arch=0
     fi
     #yay doesn't do sudo
-    if [ -f /usr/bin/yay ]; then
-       if ! updates_aur=$(yay -Qum 2> /dev/null | wc -l); then
-       updates_aur=0
-       fi
-    fi
-    updates=$(("$updates_arch" + "$updates_aur"))
-
+#  if [ -f /usr/bin/yay ]; then
+#      if ! updates_aur=$(yay -Qum 2> /dev/null | wc -l); then
+#      updates_aur=0
+#      fi
+#   fi
+#   updates=$(("$updates_arch" + "$updates_aur"))
+    updates="$updates_arch"
+    
 #Debian update check
 elif [ -f /usr/bin/apt ]; then
     if ! updates=$(sudo apt-get update > /dev/null && apt-get --just-print upgrade | grep "Inst " | wc -l); then
