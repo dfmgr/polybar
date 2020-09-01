@@ -648,7 +648,7 @@ format-background = ${colors.background}
 
 [module/updates]
 type = custom/script
-exec = "$HOME/.config/polybar/scripts/check-all-updates.sh"
+exec = "check-all-updates.sh"
 interval = 21600
 label = %output%
 format-foreground = ${colors.foreground}
@@ -706,8 +706,8 @@ animation-discharging-framerate = 750
 
 [module/compton]
 type = custom/script
-exec = "$HOME/.config/polybar/scripts/compton.sh"
-click-left = "$HOME/.config/polybar/scripts/compton-toggle.sh"
+exec = "compton.sh"
+click-left = "compton-toggle.sh"
 interval = 5
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -970,18 +970,18 @@ format-connected-background = ${colors.background}
 type = custom/script
 tail = true
 label = %output%
-exec = "$HOME/polybar/scripts/pavolume.sh" --listen
+exec = "pavolume.sh" --listen
 click-right = exec pavucontrol
-click-left = "$HOME/.config/polybar/scripts/pavolume.sh" --togmute
-scroll-up = "$HOME/.config/polybar/scripts/pavolume.sh" --up
-scroll-down = "$HOME/.config/polybar/scripts/pavolume.sh" --down
+click-left = "pavolume.sh" --togmute
+scroll-up = "pavolume.sh" --up
+scroll-down = "pavolume.sh" --down
 format-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 [module/pub-ip]
 type = custom/script
-exec = "$HOME/.config/polybar/scripts/pub-ip.sh" 2>/dev/null
+exec = "pub-ip.sh" 2>/dev/null
 interval = 100
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -1034,7 +1034,7 @@ ramp-foreground =${colors.foreground}
 
 [module/temperature2]
 type = custom/script
-exec = "$HOME/.config/polybar/scripts/tempcores.sh" 2>/dev/null
+exec = "tempcores.sh" 2>/dev/null
 interval = 2
 format-padding = 1
 format-foreground = ${colors.foreground}
@@ -1097,7 +1097,7 @@ format-prefix-foreground = #3EC13F
 format-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-exec = python3 -u "$HOME/.config/polybar/scripts/weather.py" 2>/dev/null
+exec = python3 -u "weather.py" 2>/dev/null
 tail = true
 
 [module/wired-network]
