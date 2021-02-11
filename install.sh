@@ -146,7 +146,7 @@ run_postinst() {
 }
 #
 execute "run_postinst" "Running post install scripts"
-cmd_exists polybar || printf_red "\t\tPolybar didn't install: Please run $INSTDIR/build.sh\n"
+cmd_exists polybar || printf_red "Polybar didn't install: Please run $INSTDIR/build.sh"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # create version file
 dfmgr_install_version
