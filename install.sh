@@ -51,10 +51,10 @@ scripts_check
 # Defaults
 APPNAME="${APPNAME:-polybar}"
 APPDIR="${APPDIR:-$HOME/.config/$APPNAME}"
-INSTDIR="${INSTDIR}"
-REPO="${DFMGRREPO:-https://github.com/dfmgr/$APPNAME}"
-REPORAW="${REPORAW:-$REPO/raw}"
-APPVERSION="$(__appversion "$REPORAW/master/version.txt")"
+INSTDIR="${INSTDIR:-$HOME/.local/share/CasjaysDev/dfmgr/$APPNAME}"
+REPO="${REPO:-https://github.com/dfmgr/$APPNAME}"
+REPORAW="${REPORAW:-$REPO/$GIT_REPO_BRANCH}"
+APPVERSION="$(__appversion "$REPORAW/version.txt")"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Setup plugins
 PLUGNAMES=""
@@ -122,7 +122,7 @@ if __am_i_online; then
   if [ -d "$INSTDIR/.git" ]; then
     execute "git_update $INSTDIR" "Updating $APPNAME configurations"
   else
-    execute "git_clone $REPO/$APPNAME $INSTDIR" "Installing $APPNAME configurations"
+    execute "git_clone $REPO $INSTDIR" "Installing $APPNAME configurations"
   fi
   # exit on fail
   failexitcode $? "Git has failed"
