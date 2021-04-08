@@ -50,10 +50,11 @@ scripts_check
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Defaults
 APPNAME="${APPNAME:-polybar}"
-APPDIR="${APPDIR:-$HOME/.config/$APPNAME}"
-INSTDIR="${INSTDIR:-$HOME/.local/share/CasjaysDev/dfmgr/$APPNAME}"
-REPO="${REPO:-https://github.com/dfmgr/$APPNAME}"
-REPORAW="${REPORAW:-$REPO/$GIT_REPO_BRANCH}"
+APPDIR="$CONF/$APPNAME"
+INSTDIR="$CASJAYSDEVSHARE/$SCRIPTS_PREFIX/$APPNAME"
+REPO_BRANCH="${GIT_REPO_BRANCH:-master}"
+REPO="${DFMGR:-https://github.com/dfmgr}/$APPNAME"
+REPORAW="$REPO/raw/$REPO_BRANCH"
 APPVERSION="$(__appversion "$REPORAW/version.txt")"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Setup plugins
