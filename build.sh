@@ -22,7 +22,7 @@ elif [ -f "$HOME/.local/share/scripts/functions/app-installer.bash" ]; then
   . "$HOME/.local/share/scripts/functions/app-installer.bash"
 else
   mkdir -p "$HOME/.local/share/scripts/functions"
-  curl -LSs https://github.com/dfmgr/installer/raw/master/functions/app-installer.bash -o "$HOME/.local/share/scripts/functions/app-installer.bash"
+  curl -LSs https://github.com/dfmgr/installer/raw/main/functions/app-installer.bash -o "$HOME/.local/share/scripts/functions/app-installer.bash"
   . "$HOME/.local/share/scripts/functions/app-installer.bash"
 fi
 

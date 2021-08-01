@@ -5,7 +5,7 @@ fast and easy-to-use tool for creating status bars
 Automatic install/update:
 
 ```shell
-bash -c "$(curl -LSs https://github.com/dfmgr/polybar/raw/master/install.sh)"
+bash -c "$(curl -LSs https://github.com/dfmgr/polybar/raw/main/install.sh)"
 ```
 
 Manual install:
