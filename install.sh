@@ -18,6 +18,7 @@ USER="${SUDO_USER:-${USER}}"
 HOME="${USER_HOME:-${HOME}}"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #set opts
+if [[ "$1" == "--debug" ]]; then shift 1 && set -xo pipefail && export SCRIPT_OPTS="--debug" && export _DEBUG="on"; fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Import functions
@@ -58,7 +59,7 @@ REPORAW="$REPO/raw/$REPO_BRANCH"
 APPVERSION="$(__appversion "$REPORAW/version.txt")"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Setup plugins
-PLUGNAMES=""
+PLUGNAMES="source"
 PLUGDIR="${SHARE:-$HOME/.local/share}/$APPNAME"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Call the dfmgr function
@@ -132,11 +133,11 @@ fi
 # Plugins
 if am_i_online; then
   if [ "$PLUGNAMES" != "" ]; then
-    if [ -d "$PLUGDIR"/PLUREP/.git ]; then
-      execute "git_update $PLUGDIR/PLUGREP" "Updating plugin PLUGNAME"
+    if [ -d "$PLUGDIR/source/.git" ]; then
+      execute "git_update $PLUGDIR/source" "Updating plugin source"
     else
       execute
-      "git_clone PLUGINREPO $PLUGDIR/PLUGREP" "Installing plugin PLUGREP"
+      "git_clone https://github.com/polybar/polybar $PLUGDIR/source" "Installing plugin source"
     fi
   fi
   # exit on fail
@@ -146,6 +147,14 @@ fi
 # run post install scripts
 run_postinst() {
   dfmgr_run_post
+  if ! cmd_exits "$APPNAME" && [[ -f "$INSTDIR/build.sh" ]]; then
+    if builtin cd "$PLUGDIR/source"; then
+      BUILD_SRC_DIR="$PLUGDIR/source"
+      BUILD_SRC_URL="https://github.com/polybar/polybar"
+      export BUILD_SRC_DIR BUILD_SRC_URL
+      eval "$INSTDIR/build.sh"
+    fi
+  fi
 }
 #
 execute "run_postinst" "Running post install scripts"
