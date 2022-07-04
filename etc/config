@@ -1097,7 +1097,7 @@ format-prefix-foreground = #3EC13F
 format-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-exec = weather simple 2>/dev/null
+exec = weather simple script 2>/dev/null
 tail = true
 
 [module/wired-network]
