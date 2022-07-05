@@ -136,8 +136,7 @@ if am_i_online; then
     if [ -d "$PLUGDIR/source/.git" ]; then
       execute "git_update $PLUGDIR/source" "Updating plugin source"
     else
-      execute
-      "git_clone https://github.com/polybar/polybar $PLUGDIR/source" "Installing plugin source"
+      execute "git_clone https://github.com/polybar/polybar $PLUGDIR/source" "Installing plugin source"
     fi
   fi
   # exit on fail
