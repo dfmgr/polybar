@@ -9,7 +9,7 @@
 # @Created       : Tuesday, Jul 05, 2022 08:01 EDT
 # @File          : build.sh
 # @Description   : Installer script for polybar
-# @TODO          :
+# @TODO          : Rewrite this script
 # @Other         :
 # @Resource      :
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
